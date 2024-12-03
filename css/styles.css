@@ -1,0 +1,71 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #F6F0E2;
+}
+
+@font-face {
+    font-family: DailyProphet;
+    src: url('../font/prophet-bold.TTF') format('truetype'); /* Pfad prüfen */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: DailyProphetNews;
+    src: url('../font/prophet.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.title {
+    font-size: 5.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-family: DailyProphet, serif; /* Prophet-Schrift nutzen */
+}
+
+.subtitle {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: DailyProphet, serif; /* Prophet hier hinzufügen */
+}
+
+.dpnews {
+    font-family: DailyProphetNews, serif;
+}
+
+.header {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: DailyProphet, serif; /* Prophet hier hinzufügen */
+}
+
+.blocked {
+    text-align: justify;
+    text-align-last: none;
+}
+
+.information {
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: DailyProphet, serif;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
