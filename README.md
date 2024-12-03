@@ -1,6 +1,5 @@
-# Hochzeit Jacky & Kenneth 🎉
+# Hochzeit  🎉
 
-Willkommen zur offiziellen Hochzeitswebseite von Jacky & Kenneth!  
 Diese Webseite wurde entwickelt, um alle Gäste über das große Event zu informieren und Zusagen entgegenzunehmen.  
 
 ## 🌟 Features  
