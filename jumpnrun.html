@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Jump ’n’ Run Beispiel</title>
+    <style>
+        body {
+            margin: 0;
+            background: #333;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: #87ceeb; /* Ein himmelblauer Hintergrund */
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="400"></canvas>
+
+<script>
+    // --- Spiellogik --- //
+
+    // Canvas und Kontext
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Spielfigur-Parameter
+    const player = {
+        x: 50,
+        y: 0,
+        width: 50,
+        height: 50,
+        color: '#ff0000',
+        dy: 0,             // Vertikale Geschwindigkeit
+        gravity: 0.5,       // Schwerkraft
+        jumpForce: -10,      // Sprungkraft (negativ, da nach oben)
+        onGround: false
+    };
+
+    // Boden
+    const groundY = canvas.height - 50; // Spieler steht auf "Bodenhöhe"
+    const groundHeight = 50;            // Höhe des Bodens
+
+    // Eingabevariablen
+    let rightPressed = false;
+    let leftPressed = false;
+    let upPressed = false;
+
+    // Geschwindigkeit in horizontaler Richtung
+    const playerSpeed = 3;
+
+    // Event Listener für Tasten
+    document.addEventListener('keydown', keyDownHandler);
+    document.addEventListener('keyup', keyUpHandler);
+
+    function keyDownHandler(e) {
+        if(e.code === 'ArrowRight' || e.code === 'KeyD') {
+            rightPressed = true;
+        }
+        if(e.code === 'ArrowLeft' || e.code === 'KeyA') {
+            leftPressed = true;
+        }
+        if((e.code === 'ArrowUp' || e.code === 'Space' || e.code === 'KeyW') && player.onGround) {
+            upPressed = true;
+        }
+    }
+
+    function keyUpHandler(e) {
+        if(e.code === 'ArrowRight' || e.code === 'KeyD') {
+            rightPressed = false;
+        }
+        if(e.code === 'ArrowLeft' || e.code === 'KeyA') {
+            leftPressed = false;
+        }
+        if(e.code === 'ArrowUp' || e.code === 'Space' || e.code === 'KeyW') {
+            upPressed = false;
+        }
+    }
+
+    // Update-Funktion: Hier wird die Logik ausgeführt
+    function update() {
+        // Horizontale Bewegung
+        if(rightPressed) {
+            player.x += playerSpeed;
+        }
+        if(leftPressed) {
+            player.x -= playerSpeed;
+        }
+
+        // Sprung / Schwerkraft
+        player.y += player.dy;
+        player.dy += player.gravity;
+
+        // Boden-Kollision
+        if(player.y + player.height > groundY) {
+            player.y = groundY - player.height;
+            player.dy = 0;
+            player.onGround = true;
+        } else {
+            player.onGround = false;
+        }
+
+        // Springen, wenn onGround
+        if(upPressed && player.onGround) {
+            player.dy = player.jumpForce;
+            player.onGround = false;
+        }
+    }
+
+    // Render-Funktion: Zeichnet den aktuellen Spielzustand
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Boden zeichnen
+        ctx.fillStyle = '#654321';
+        ctx.fillRect(0, groundY, canvas.width, groundHeight);
+
+        // Spieler zeichnen
+        ctx.fillStyle = player.color;
+        ctx.fillRect(player.x, player.y, player.width, player.height);
+    }
+
+    // Spielschleife
+    function gameLoop() {
+        update();
+        draw();
+        requestAnimationFrame(gameLoop);
+    }
+
+    // Start des Spiels
+    gameLoop();
+</script>
+
+</body>
+</html>

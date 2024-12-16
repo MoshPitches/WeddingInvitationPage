@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-bs-theme="auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +16,16 @@
         <div class="d-flex justify-content-between">
             <span class="header">Jacky & Kenneth</span>
             <span class="header">Der Tagesprophet</span>
-            <span class="header">Samstag, 11. Oktober 2025</span>
+            <span class="header">Samstag, 11. Oktober 2025 <button id="theme-toggle" class="btn">🌒</button></span>
         </div>
         <h1 class="display-4 text-uppercase mt-3 title">Voll kross goile Hochi</h1>
     </header>
 
+
     <!-- Main Content Section -->
     <div class="row">
-        <div class="col-md-8">
-            <h2 class="subtitle">Ein neues Zeitalter</h2>
+        <h2 class="subtitle">Ein neues Zeitalter</h2>
+        <div class="col-md-7">
             <p class="lead blocked">
                 <b>Jacky & Kenneth.</b> Eine unglaubliche Erfolgsgeschichte, die die Massen seit dem weit entfernten
                 Jahr 2014 fasziniert, inspiriert & terrorisiert.<br>
@@ -32,34 +33,39 @@
                 Oktober 2025</i> als monumental bezeichnen. Manch einer wird sagen, dieser Tag wird der Beginn einer
                 neuen Zeitrechnung. Der 1. Kenneth des Jahres 0.<br>
                 Wenn du den Start eines neuen Zeitalters der Menschheit nicht verpassen willst <i>(du willst nicht,
-                glaub mir)</i>, dann triff dich zu folgenden Zeiten am folgenden Ort ein:<br>
+                glaub mir)</i>, dann triff dich am folgenden Ort ein:<br>
             </p>
-            <p class="information">
-                11. Oktober 2025<br>
-                14:00 Uhr<br>
-                Scheunentraum<br>
-                Debyestrasse 52-54<br>
-                52078 Aachen<br>
-            </p>
+            <p>
+                <!-- Google Maps -->
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0"
+                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=de&amp;q=Scheunentraum Aachen&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                </div>
+                </p>
+
+            </div>
         </div>
-        <div class="col-md-4 text-center">
-            <img src="imgs/verlobung.gif" class="img-fluid border border-dark" alt="Jacky & Kennet">
+        <div class="col-md-5 text-center">
+            <img src="imgs/verlobung.gif" class="img-fluid border border-dark rounded-3" alt="Jacky & Kenneth">
             <p class="small text-muted mt-2">Die Hauptattraktion, wenige Minuten nach dem Kniefall.</p>
         </div>
     </div>
     <!-- Zeitungsartikel und Zusage Formular nebeneinander -->
     <div class="row mt-5">
         <!-- Zeitungsartikel: Besondere Gäste auf der Hochzeit -->
-        <div class="col-md-7">
-            <h3 class="subtitle">Unterhaltungsgarantie</h3>
-            <p class="lead blocked">
+        <div class="col-md-6">
+            <h3 class="subtitle long-word">Unterhaltungsgarantie</h3>
+            <p class="lead blocked long-word">
                 Die Hochzeit von Jacky & Kenneth verspricht ein unvergessliches Erlebnis zu werden. Die Trauzeremonie
                 wird von der eloquentesten Traurednerin weit und breit gestaltet, die mit ihren Worten berührt. Zwei
-                einzigaritge Fotografen werden die schönsten Momente des Tages einfangen, während DJ Luca die Aftershow
+                <a href="https://www.herzhaftsuessfotografie.de">herzhaft süße Fotografen</a> werden die schönsten Momente des Tages einfangen, während DJ Luca die Aftershow
                 Party rocken und für MoshPits sorgen wird.
             </p>
+            <img src="https://scheunentraum.de/wp-content/uploads/2023/09/DSC099031.jpg" class="img-fluid w-auto">
             <p class="lead blocked ">
-                Kulinarisch erwartet die Gäste ein köstliches Barbecue-Buffet, das keine Wünsche offenlässt. Auf dem Hof
+                Kulinarisch erwartet euch ein köstliches Barbecue-Buffet, das keine Wünsche offenlässt. Auf dem Hof
                 stehen zudem drei spannende Spiele bereit, die für Spaß und Unterhaltung sorgen. Damit niemand durstig
                 bleibt,gibt es eine Getränke-Flatrate mit einer Auswahl an Bier, Wein, Longdrinks, Softdrinks und frisch
                 gebrühtem Kaffee. <br>
@@ -69,25 +75,30 @@
         </div>
 
         <!-- Zusage Formular Section (40%) -->
-        <div class="col-md-5">
+        <div class="col-md-6">
             <h2 class="subtitle">Schicke uns eine Eule</h2>
             <p>Und gib uns Bescheid, ob du dabei bist!</p>
             <form id="rsvp-form" class="text-start mx-auto" style="max-width: 400px;">
                 <!-- Name Input Field -->
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label formheader">Name</label>
                     <input type="text" id="name" name="name" class="form-control" required>
+                    <small class="form-text text-muted blocked">Dein Vorname reicht aus.</small>
+
                 </div>
 
                 <!-- Code Input Field -->
                 <div class="mb-3">
-                    <label for="email" class="form-label">Dein Code</label>
+                    <label for="email" class="form-label formheader">Einladungscode</label>
                     <input type="code" id="code" name="code" class="form-control" required>
+                    <small class="form-text text-muted blocked">Deinen Code findest du auf deiner Einladung. Der Code
+                        dient zur Sicherheitsabfrage.</small>
+
                 </div>
 
                 <!-- Ernährungspräferenz Auswahl -->
                 <div class="mb-3">
-                    <label for="food" class="form-label">Ich esse am liebsten</label>
+                    <label for="food" class="form-label formheader">Ich esse am liebsten</label>
                     <select id="food" name="food" class="form-select" required>
                         <option value="" disabled selected>Wähle eine Option</option>
                         <option value="vegetarisch">Vegetarisch</option>
@@ -98,7 +109,7 @@
 
                 <!-- Begleitperson Auswahl -->
                 <div class="mb-3">
-                    <label for="begleitung" class="form-label">Ich bringe mit</label>
+                    <label for="begleitung" class="form-label formheader">Ich bringe mit</label>
                     <select id="begleitung" name="begleitung" class="form-select">
                         <option value="none" selected>Niemanden</option>
                         <option value="partner">Partner:in</option>
@@ -111,9 +122,8 @@
                 <!-- Dynamische Felder für Partner und Kinder -->
                 <!-- Partnername Feld (Wird nur angezeigt, wenn Partner ausgewählt) -->
                 <div class="mb-3" id="partner-name-field" style="display: none;">
-                    <label for="partner-name" class="form-label">Name des Partners / der Partnerin</label>
-                    <input type="text" class="form-control" id="partner-name" name="partner-name"
-                           placeholder="Name des Partners">
+                    <label for="partner-name" class="form-label formheader">Name des Partners / der Partnerin</label>
+                    <input type="text" class="form-control" id="partner-name" name="partner-name">
                 </div>
                 <div class="mb-3" id="partner-food-field" style="display: none;">
                     <label for="partner-food" class="form-field">Partner:in isst am liebsten</label>
@@ -127,7 +137,7 @@
 
                 <!-- Anzahl der Kinder Auswahl (Wird nur angezeigt, wenn Kinder ausgewählt) -->
                 <div class="mb-3" id="children-count-field" style="display: none;">
-                    <label for="children-count" class="form-label">Anzahl der Kinder</label>
+                    <label for="children-count" class="form-label formheader">Anzahl der Kinder</label>
                     <select id="children-count" name="children-count" class="form-select">
                         <option value="1">1 Kind</option>
                         <option value="2">2 Kinder</option>
@@ -136,7 +146,9 @@
                 </div>
 
                 <!-- Zusage Button -->
-                <button type="submit" class="btn btn-dark text-uppercase w-100">Zusage senden</button>
+                <button type="submit" class="btn btn-dark text-uppercase w-100" data-bs-toggle="tooltip"
+                        title="Wir freuen uns auf dich!" style="font-family: DailyProphet">Zusage senden
+                </button>
             </form>
         </div>
     </div>
@@ -144,7 +156,9 @@
 
     <!-- Footer Section -->
     <footer class="text-center mt-5 py-3">
-        <p>Made with <span style="color: red;">❤️</span> by Kenneth Hackstein</p>
+        <p>Made with <span style="color: red;">❤️</span> by <a href="https://www.linkedin.com/in/kenneth-hackstein/"
+                                                               class="linkedin" target="_blank">Kenneth Hackstein</a>
+        </p>
         <p>Powered by ☕️</p>
     </footer>
 </div>
@@ -168,5 +182,6 @@
         }
     });
 </script>
+<script src="js/darkmode.js"></script>
 </body>
 </html>
